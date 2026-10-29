@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Special Elite", "Courier New", monospace;
+  --font-sans: "IBM Plex Sans", system-ui, sans-serif;
+  --color-ink: #0f1b2d;
+  --color-board: #172840;
+  --color-board-2: #1e3352;
+  --color-line: #2c4262;
+  --color-paper: #e8e4d8;
+  --color-muted: #9fb0c8;
+  --color-string: #e0524d;
+  --color-tag: #e7c65a;
+}
+
+body {
+  background-color: var(--color-ink);
+  background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.045) 1px, transparent 0);
+  background-size: 24px 24px;
+  color: var(--color-paper);
+  font-family: var(--font-sans);
+  line-height: 1.65;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-tag);
+  outline-offset: 2px;
+}
+
+/* Clue revealed by the player */
+@keyframes reveal {
+  from { opacity: 0; transform: translateY(-6px) rotate(-1deg); }
+  to   { opacity: 1; transform: none; }
+}
+.reveal { animation: reveal 0.35s ease-out; }
+
+/* Verdict stamp on the results page */
+@keyframes stamp {
+  from { opacity: 0; transform: rotate(-7deg) scale(1.8); }
+  to   { opacity: 1; transform: rotate(-7deg) scale(1); }
+}
+.stamp {
+  display: inline-block;
+  border: 3px double currentColor;
+  border-radius: 6px;
+  padding: 0.2rem 1rem;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  letter-spacing: 0.08em;
+  transform: rotate(-7deg);
+  animation: stamp 0.45s cubic-bezier(0.2, 1.2, 0.4, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .stamp { animation: none; }
+  * { transition: none !important; }
+}
