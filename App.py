@@ -154,7 +154,7 @@ function App() {
           e.preventDefault();
           newCase();
         }}>
-          <b>✦</b>
+          <b></b>
           <span>
             THE MYSTERY ROOM
             <small>AN INTERACTIVE DETECTIVE EXPERIENCE</small>
