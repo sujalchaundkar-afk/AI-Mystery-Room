@@ -161,7 +161,7 @@ function App() {
           </span>
         </a>
 
-        <span className="top-tag">● CASE FILES / 001</span>
+        <span className="top-tag"> CASE FILES / 001</span>
       </header>
 
       {!game ? (
